@@ -1,0 +1,49 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:4.8.2
+    ports:
+      - "4444:4444"
+  chrome:
+    image: selenium/node-chrome:4.8.2
+    shm_size: '2g'        
+    depends_on:
+      - hub
+    environment:
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+  firefox:
+    image: selenium/node-firefox:4.8.2
+    shm_size: '2g'   
+    depends_on:
+      - hub
+    environment:
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+  Search-module:
+    image: smitpatel0109/selenium-docker
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - TAGS=@search
+      - MODULE=Search-module.xml
+    volumes:
+      - .\output\Search-result:/usr/share/smit/test-output
+  BookFlight-module:
+    image: smitpatel0109/selenium-docker
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - TAGS=@search
+      - MODULE=BookFlight-module.xml
+    volumes:
+      - .\output\Bookflight-result:/usr/share/smit/test-output      
+      
