@@ -3,16 +3,17 @@ package com.newtours.tests;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.base.test.Basetest;
+import com.base.test.BaseTest2;
 import com.newtours.pages.FindFlightPage;
 import com.newtours.pages.FlightConfirmationPage;
 import com.newtours.pages.FlightDetailsPage;
 import com.newtours.pages.RegistarionConfirmationPage;
 import com.newtours.pages.RegistrationPage;
 
-public class BookFlightTest extends Basetest{
+public class BookFlightTest extends BaseTest2{
 	
 	private String noOfPassanger;
 	private String expectedPrice;
