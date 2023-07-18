@@ -14,7 +14,7 @@ import com.newtours.pages.FlightDetailsPage;
 import com.newtours.pages.RegistarionConfirmationPage;
 import com.newtours.pages.RegistrationPage;
 
-public class BookFlightTest extends Basetest{
+public class BookFlightTest2 extends BaseTest2{
 	
 	private String noOfPassanger;
 	private String expectedPrice;

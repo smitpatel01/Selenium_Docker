@@ -9,7 +9,7 @@ import com.base.test.BaseTest2;
 import com.base.test.Basetest;
 import com.searchmodule.pages.SearchPage;
 
-public class SearchTest extends Basetest{
+public class SearchTest2 extends BaseTest2{
 
 	@Test
 	@Parameters({"keyword"})
