@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.checkerframework.common.reflection.qual.GetMethod;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -22,6 +24,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest2 {
 	protected WebDriver driver;
+	protected static final Logger logger = LogManager.getLogger(BaseTest2.class);
 	
 	@BeforeTest
 	public void setupDriver(){
@@ -30,12 +33,16 @@ public class BaseTest2 {
 //		
 		driver = new ChromeDriver();
 		WebDriverManager.chromedriver().setup();
+		logger.info("Chrome browser is started");
+		logger.error("error ");
 	}
 	
 	@AfterTest
 	public void quitDriver() {
-		this.driver.quit();
 		
+		this.driver.quit();
+		logger.info("Chrome browser is closed");
+
 	}
 	
 	@AfterMethod 
