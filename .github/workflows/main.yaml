@@ -56,6 +56,6 @@ jobs:
       - name: Archive Artifacts and Clean Up
         run: |
           mkdir -p output
-          docker cp $(docker-compose ps -q Search-module):/output/** output/
+          docker cp $(docker-compose ps -q Search-module):.\output\Search-result output/
           docker-compose down
         # Make sure to adjust the paths and container names based on your Docker Compose setup
