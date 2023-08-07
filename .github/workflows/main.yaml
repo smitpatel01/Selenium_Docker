@@ -5,6 +5,7 @@ on:
     branches:
       - main  # Replace with the branch you want to trigger the workflow on
   workflow_dispatch: # Enable manual triggering of the workflow
+  repository_dispatch:  # Enable triggering of the workflow from repo1
 
 jobs:
   build_and_push:
