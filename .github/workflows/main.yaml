@@ -59,3 +59,8 @@ jobs:
           docker cp $(docker-compose ps -q Search-module):/usr/share/smit/test-output output/
           docker-compose down
         # Make sure to adjust the paths and container names based on your Docker Compose setup
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results  # Replace with a meaningful name for your artifacts
+          path: output
